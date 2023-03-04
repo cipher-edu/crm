@@ -5,15 +5,24 @@ def home(request):
     return render(request, 'index.html')
 
 def addclients(request):
-    return render(request, 'pages/addcliens.html')
+    return render(request, 'pages/addclients.html')
 
 def additems(request):
-    return render(request, 'pages/aditems.html')
+    return render(request, 'pages/additems.html')
 
 
 def addorganizations(request):
     return render(request, 'pages/addorganizations.html')
 
+def orgsevice(request):
+    return render(request, 'pages/organizationsservice.html')
+
+def orgseviceend(request):
+    return render(request, 'pages/endserviceorg.html')
+
+def orgseviceend(request):
+    return render(request, 'pages/endserviceorg.html')
+   
 def addworker(request):
     return render(request, 'pages/addworker.html')
 

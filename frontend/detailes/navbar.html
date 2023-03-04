@@ -6,19 +6,19 @@
         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Xizmat ko'rsatish</span></li>
         <li class="sidebar-item"> <a class="sidebar-link two-column has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-Box-withFolders"></i><span class="hide-menu">Xizmat ko'rsatish </span></a>
             <ul aria-expanded="false" class="collapse first-level">
-                <li class="sidebar-item"><a href="inbox-email.html" class="sidebar-link"><i class="mdi mdi-email"></i><span class="hide-menu"> Mijozlarni ro'yxatga olish </span></a></li>
-                <li class="sidebar-item"><a href="inbox-email-detail.html" class="sidebar-link"><i class="mdi mdi-email-alert"></i><span class="hide-menu"> Xizmat ko'rsatish </span></a></li>
-                <li class="sidebar-item"><a href="inbox-email-compose.html" class="sidebar-link"><i class="mdi mdi-email-secure"></i><span class="hide-menu"> Xizmatni yakunlash </span></a></li>
-                <li class="sidebar-item"><a href="ticket-list.html" class="sidebar-link"><i class="mdi mdi-book-multiple"></i><span class="hide-menu"> Barcha mijozlarni ko'rish </span></a></li>
+                <li class="sidebar-item"><a href="{% url 'addclient' %}" class="sidebar-link"><i class="mdi mdi-email"></i><span class="hide-menu"> Mijozlarni ro'yxatga olish </span></a></li>
+                <li class="sidebar-item"><a href="{% url 'clientservice' %}" class="sidebar-link"><i class="mdi mdi-email-alert"></i><span class="hide-menu"> Xizmat ko'rsatish </span></a></li>
+                <li class="sidebar-item"><a href="{% url 'endcerviceliend' %}" class="sidebar-link"><i class="mdi mdi-email-secure"></i><span class="hide-menu"> Xizmatni yakunlash </span></a></li>
+                <li class="sidebar-item"><a href="{% url 'clients' %}" class="sidebar-link"><i class="mdi mdi-book-multiple"></i><span class="hide-menu"> Barcha mijozlarni ko'rish </span></a></li>
             </ul>
         </li>
         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Tashkilotlar</span></li>
         <li class="sidebar-item mega-dropdown"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-Duplicate-Window"></i><span class="hide-menu">Tashkilotlar </span></a>
             <ul aria-expanded="false" class="collapse first-level">
-                <li class="sidebar-item"><a href="ui-buttons.html" class="sidebar-link"><i class="mdi mdi-toggle-switch"></i><span class="hide-menu"> Ro'yxatga olish</span></a></li>
-                <li class="sidebar-item"><a href="ui-modals.html" class="sidebar-link"><i class="mdi mdi-tablet"></i><span class="hide-menu"> Xizmat ko'rsatish</span></a></li>
-                <li class="sidebar-item"><a href="ui-tab.html" class="sidebar-link"><i class="mdi mdi-sort-variant"></i><span class="hide-menu"> Xizmatni yakunlash</span></a></li>
-                <li class="sidebar-item"><a href="ui-tooltip-popover.html" class="sidebar-link"><i class="mdi mdi-image-filter-vintage"></i><span class="hide-menu"> &amp; Barcha tashkilotlar</span></a></li>
+                <li class="sidebar-item"><a href="{% url 'addorganizations' %}" class="sidebar-link"><i class="mdi mdi-toggle-switch"></i><span class="hide-menu"> Ro'yxatga olish</span></a></li>
+                <li class="sidebar-item"><a href="{% url 'orgsevice' %}" class="sidebar-link"><i class="mdi mdi-tablet"></i><span class="hide-menu"> Xizmat ko'rsatish</span></a></li>
+                <li class="sidebar-item"><a href="{% url 'orgseviceend' %}" class="sidebar-link"><i class="mdi mdi-sort-variant"></i><span class="hide-menu"> Xizmatni yakunlash</span></a></li>
+                <li class="sidebar-item"><a href="{% url 'organizations' %}" class="sidebar-link"><i class="mdi mdi-image-filter-vintage"></i><span class="hide-menu"> &amp; Barcha tashkilotlar</span></a></li>
             </ul>
         </li>
         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Qarzdor tashkilotlar</span></li>
