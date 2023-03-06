@@ -1,12 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, get_object_or_404,redirect
+from .forms import *
+from .models import *
 
 # Create your views here.
 def home(request):
     return render(request, 'index.html')
 
 def addclients(request):
-    return render(request, 'pages/addclients.html')
-
+    form = ClientsForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('clientservice')
+    else:
+        form = ClientsForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'pages/addclients.html', context)
 def additems(request):
     return render(request, 'pages/additems.html')
 
@@ -42,3 +53,9 @@ def organizations(request):
 
 def workers(request):
     return render(request, 'pages/worker.hml')
+
+def qarz(request):
+    return render(request, 'pages/qarzorliklar.html')
+
+def baza(request):
+    return render(request, 'pages/baza.html')
