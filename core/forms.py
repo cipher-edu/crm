@@ -18,23 +18,31 @@ class CerviseClientForm(forms.ModelForm):
     class Meta:
         model = CerviseClient
         fields = '__all__'
-        # widgets = {
-        #     'client_name': forms.Select(attrs={'class': 'form-control select2'}),
-        #     'product_name': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'product_value': forms.NumberInput(attrs={'class': 'form-control'}),
-        #     'product_color': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'service_catetegory': forms.Select(attrs={'class': 'form-control select2'}),
-        #     'product_defective': forms.TextInput(attrs={'class':'form-control'}),
-        #     'product_repaired' : forms.TextInput(attrs={'class':'form-control'}),
-        #     'produtct_not_repaired': forms.TextInput(attrs={'class':'form-control'}),
-        #     'clien_service_price' : forms.NumberInput(attrs={'class':'form-control'}),
-        #     'product_repairman' :   forms.Select(attrs={'class':'form-control select2'}),
-        # }
+        widgets = {
+            'client_name': forms.Select(attrs={'class': 'form-control custom-select'}),
+            'product_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'product_value': forms.NumberInput(attrs={'class': 'form-control number'}),
+            'product_color': forms.TextInput(attrs={'class': 'form-control'}),
+            'service_catetegory': forms.Select(attrs={'class': 'form-control custom-select'}),
+            #'product_defective': forms.TextInput(attrs={'class':'form-control'}),
+            #'product_repaired' : forms.TextInput(attrs={'class':'form-control'}),
+            #'produtct_not_repaired': forms.TextInput(attrs={'class':'form-control'}),
+            #'clien_service_price' : forms.NumberInput(attrs={'class':'form-control'}),
+            'product_repairman' :   forms.Select(attrs={'class':'form-control custom-select'}),
+        }
 
-class Cerviceend(forms.ModelForm):
+class Cerviceendform(forms.ModelForm):
     class Meta:
         model = Mahsulottopshirish
         fields = '__all__'
+        widgets = {
+            'product_defective': forms.TextInput(attrs={'class':'form-control'}),
+            'product_repaired' : forms.TextInput(attrs={'class':'form-control'}),
+            'produtct_not_repaired': forms.TextInput(attrs={'class':'form-control'}),
+            'clien_service_price' : forms.TextInput(attrs={'class':'form-control'}),
+            'cervice_item_price' : forms.TextInput(attrs={'class':'form-control'}),
+            'topshiruvchi': forms.Select(attrs={'class':'form-control custom-select'}),
+        }
 
 class AddWorkerForm(forms.ModelForm):
     

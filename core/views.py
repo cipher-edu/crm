@@ -43,10 +43,30 @@ def clients(request):
 
 
 def clientservice(request):
-    return render(request, 'pages/clientservice.html')
+    form = CerviseClientForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = CerviseClientForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'pages/clientservice.html', context=context)
 
 def endcerviceliend(request):
-    return render(request, 'pages/endcerviceliend.html')
+    form = Cerviceendform(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = Cerviceendform()
+    context = {
+        'form': form,
+    }
+    return render(request, 'pages/endcerviceliend.html', context=context)
 
 def organizations(request):
     return render(request, 'pages/organizations.html')

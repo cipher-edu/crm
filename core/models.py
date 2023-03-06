@@ -105,10 +105,11 @@ class CerviseClient(models.Model):
 #mahsulotni topshirish
 class Mahsulottopshirish(models.Model):
     product_defective = models.CharField(max_length=150, verbose_name="Maxsulot aybi")
-    product_repaired = models.CharField(max_length=150, verbose_name="Maxsulotni ta'mirlar")
+    product_repaired = models.CharField(max_length=150, verbose_name="Maxsulotni ta'mirlash")
     produtct_not_repaired = models.CharField(max_length=150, verbose_name="Maxsulotni ta'mirlamaslik")
     cervice_item_price = models.IntegerField(verbose_name="Ishlatilingan texnika narxi")
     clien_service_price = models.IntegerField(verbose_name="Service narxi")
+    topshiruvchi = models.ForeignKey(Ishchilar, on_delete=models.CASCADE, verbose_name='xizmatni yakunlvchi')
 
     class Meta:
         verbose_name = 'Service xizmat yakunlash'
