@@ -15,6 +15,6 @@ urlpatterns = [
     path('org-service/', orgsevice, name="orgsevice"),
     path('end-service-organizations', orgseviceend, name='orgseviceend'),
     path('qarzdorliklar',qarz , name='qarz'),
-    path('show-client/<uuid:client_id>' , show_client, name='client' )
+    path('show-client/<uuid:detail_id>' , show_client, name='client' )
 
 ]

@@ -14,5 +14,7 @@ admin.site.register(Clientadd,AddClient)
 admin.site.register(Organizationscategory)
 admin.site.register(AddOrganization)
 admin.site.register(OrganizationPament)
-admin.site.register(CerviseClient)
+class Service(admin.ModelAdmin):
+    list_display = ('id',)
+admin.site.register(CerviseClient,Service)
 admin.site.register(Mahsulottopshirish)
