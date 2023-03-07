@@ -38,9 +38,23 @@ def addworker(request):
     return render(request, 'pages/addworker.html')
 
 
-def clients(request):
-    return render(request, 'pages/clients.html')
+def clients(request ):
+    client = Clientadd.objects.all()
+    detail = CerviseClient.objects.all()
+    context ={
+        "client":client,
+        "detail":detail
+    }
+    return render(request, 'pages/clients.html',context=context)
 
+def show_client(request, client_id,):
+    show_client = get_object_or_404(Clientadd, pk=client_id)
+    #show_detail = get_object_or_404(CerviseClient, pk=detail_id)
+    context = {
+        'show_client':show_client
+        #'show_detail':show_detail
+    }
+    return render(request, 'pages/client-show.html', context=context)
 
 def clientservice(request):
     form = CerviseClientForm(request.POST)

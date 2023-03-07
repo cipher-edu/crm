@@ -14,6 +14,7 @@ urlpatterns = [
     path('workers', workers, name='workers'),
     path('org-service/', orgsevice, name="orgsevice"),
     path('end-service-organizations', orgseviceend, name='orgseviceend'),
-    path('qarzdorliklar',qarz , name='qarz')
+    path('qarzdorliklar',qarz , name='qarz'),
+    path('show-client/<uuid:client_id>' , show_client, name='client' )
 
 ]

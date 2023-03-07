@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
+import uuid
 #savdo puli naq clik kuchirish
 
 class Cash(models.Model):
@@ -41,6 +43,7 @@ class Items(models.Model):
     items_value = models.IntegerField(verbose_name="Qiymati (dona)")
     items_color = models.CharField(max_length=50, verbose_name="Tovar rangi")
     items_creator = models.ForeignKey(Ishchilar, on_delete=models.CASCADE, default=1, verbose_name="Maxsulot qo'shuvchi xodim")
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     class Meta:
         verbose_name = 'Mahsulot turlari'
         verbose_name_plural = 'Mahsulot turlarini yaratish'
@@ -66,6 +69,7 @@ class Clientadd(models.Model):
     client_phonenumber = models.IntegerField(unique=True)
     ovner = models.ForeignKey(Ishchilar, on_delete=models.CASCADE )
     client_reception_time = models.DateField(auto_now=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     class Meta:
         verbose_name = 'Klient yaratish'
         verbose_name_plural = 'Klient yaratish'
@@ -78,6 +82,9 @@ class Clientadd(models.Model):
             self.created = timezone.now()
         self.modified = timezone.now()
         return super(Clientadd, self).save(*args, **kwargs)
+    
+    def kurish(self):
+        return reverse('client', kwargs={'client_id':self.pk})
 
 # klient baza model tugatish
 #clientga servis xizmat ko'rsatish
@@ -95,13 +102,16 @@ class CerviseClient(models.Model):
     # service_time = models.DateTimeField()
     product_repairman = models.ForeignKey(Ishchilar,on_delete=models.CASCADE, verbose_name="Maxsulotni topshiruvchi" )
     
-    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     class Meta:
         verbose_name = 'Service xizmat ko\'rsatish'
         verbose_name_plural = 'Service xizmat ko\'rsatish'
 
     def __str__(self):
         return self.product_name
+    
+    def detail(self):
+        return reverse('client', kwargs={'detail_id':self.pk})
 #mahsulotni topshirish
 class Mahsulottopshirish(models.Model):
     product_defective = models.CharField(max_length=150, verbose_name="Maxsulot aybi")
@@ -121,6 +131,7 @@ class Mahsulottopshirish(models.Model):
 class Organizationscategory(models.Model):
     categoryname = models.CharField(max_length=100)
     descriptions = models.TextField()
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     class Meta:
         verbose_name = 'Kategoriya'
@@ -135,6 +146,7 @@ class AddOrganization(models.Model):
     service_narxi= models.IntegerField()
     xizmat_haqida = models.TextField()
     service_date = models.DateField(auto_now_add=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     class Meta:
         verbose_name = 'Ishhona'
