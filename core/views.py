@@ -47,12 +47,12 @@ def clients(request ):
     }
     return render(request, 'pages/clients.html',context=context)
 
-def show_client(request,detail_id):
-    #show_client = get_object_or_404(Clientadd, pk=client_id),
-    show_detail = get_object_or_404(CerviseClient, pk=detail_id)
+def show_client(request,client_id):
+    show_client = get_object_or_404(Clientadd, pk=client_id),
+    #show_detail = get_object_or_404(CerviseClient, pk=detail_id)
     context = {
-        # 'show_client':show_client,
-        'show_detail':show_detail
+        'show_client':show_client,
+        #'show_detail':show_detail
     }
     return render(request, 'pages/client-show.html', context=context)
 

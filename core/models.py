@@ -100,9 +100,9 @@ class CerviseClient(models.Model):
     # clien_service_price = models.IntegerField(verbose_name="Service narxi")
     # client_installed_product = models.ForeignKey(Items, on_delete=models.CASCADE, default=1)
     # service_time = models.DateTimeField()
-    product_repairman = models.ForeignKey(Ishchilar,on_delete=models.CASCADE, verbose_name="Maxsulotni topshiruvchi" )
+    #product_repairman = models.ForeignKey(Ishchilar,on_delete=models.CASCADE, verbose_name="Maxsulotni topshiruvchi" )
     
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     class Meta:
         verbose_name = 'Service xizmat ko\'rsatish'
         verbose_name_plural = 'Service xizmat ko\'rsatish'
@@ -111,7 +111,7 @@ class CerviseClient(models.Model):
         return self.product_name
     
     def detail(self):
-        return reverse('client', kwargs={'detail_id':self.pk})
+        return reverse('client', kwargs={'client_id':self.pk})
 #mahsulotni topshirish
 class Mahsulottopshirish(models.Model):
     product_defective = models.CharField(max_length=150, verbose_name="Maxsulot aybi")
