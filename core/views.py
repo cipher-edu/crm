@@ -46,7 +46,7 @@ def clients(request ):
     return render(request, 'pages/clients.html',context=context)
 
 def show_client(request,client_id):
-    show_client = get_object_or_404(Clientadd, pk=client_id)
+    show_client = CerviseClient.objects.filter(client_name_id = client_id)
     context = {
         'show_client':show_client
     }

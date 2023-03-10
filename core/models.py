@@ -103,6 +103,14 @@ class CerviseClient(models.Model):
     #product_repairman = models.ForeignKey(Ishchilar,on_delete=models.CASCADE, verbose_name="Maxsulotni topshiruvchi" )
     
     #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    client_reception_time = models.DateField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        if not self.id:
+            self.created = timezone.now()
+        self.modified = timezone.now()
+        return super(Clientadd, self).save(*args, **kwargs)
     class Meta:
         verbose_name = 'Service xizmat ko\'rsatish'
         verbose_name_plural = 'Service xizmat ko\'rsatish'
