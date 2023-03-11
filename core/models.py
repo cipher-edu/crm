@@ -94,15 +94,6 @@ class CerviseClient(models.Model):
     product_value = models.IntegerField(verbose_name="Maxsulot qiymatini kiriting")
     product_color = models.CharField(max_length=35, verbose_name="Maxsulot rangini kiriting")
     service_catetegory = models.ForeignKey(Organizationsservice, on_delete=models.CASCADE, verbose_name="Service xizmat turi"  )
-    # product_defective = models.CharField(max_length=150, verbose_name="Maxsulot aybi")
-    # product_repaired = models.CharField(max_length=150, verbose_name="Maxsulotni ta'mirlar")
-    # produtct_not_repaired = models.CharField(max_length=150, verbose_name="Maxsulotni ta'mirlamaslik")
-    # clien_service_price = models.IntegerField(verbose_name="Service narxi")
-    # client_installed_product = models.ForeignKey(Items, on_delete=models.CASCADE, default=1)
-    # service_time = models.DateTimeField()
-    #product_repairman = models.ForeignKey(Ishchilar,on_delete=models.CASCADE, verbose_name="Maxsulotni topshiruvchi" )
-    
-    #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     client_reception_time = models.DateField(auto_now=True)
 
     def save(self, *args, **kwargs):
@@ -122,12 +113,17 @@ class CerviseClient(models.Model):
         return reverse('client', kwargs={'client_id':self.pk})
 #mahsulotni topshirish
 class Mahsulottopshirish(models.Model):
+    client_name = models.ForeignKey(Clientadd, on_delete=models.CASCADE, verbose_name="Mijozni tanlang")
+    product = models.ForeignKey(CerviseClient, on_delete=models.CASCADE, verbose_name="Texnikani tanla")
     product_defective = models.CharField(max_length=150, verbose_name="Maxsulot aybi")
     product_repaired = models.CharField(max_length=150, verbose_name="Maxsulotni ta'mirlash")
     produtct_not_repaired = models.CharField(max_length=150, verbose_name="Maxsulotni ta'mirlamaslik")
+    kuchadan_tovar = models.CharField(max_length=150,verbose_name="bozordan tavar olinishi")
+    sklad_item = models.ForeignKey(Items, on_delete=models.CASCADE, verbose_name="Sklad maxsulot")
     cervice_item_price = models.IntegerField(verbose_name="Ishlatilingan texnika narxi")
     clien_service_price = models.IntegerField(verbose_name="Service narxi")
     topshiruvchi = models.ForeignKey(Ishchilar, on_delete=models.CASCADE, verbose_name='xizmatni yakunlvchi')
+    coment = models.TextField(verbose_name="koment")
 
     class Meta:
         verbose_name = 'Service xizmat yakunlash'

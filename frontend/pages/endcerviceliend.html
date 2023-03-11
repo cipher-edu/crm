@@ -93,9 +93,21 @@
                                     <div class="row pt-3">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Tavar aybi</label>
+                                                <label class="control-label">Mijozni tanlang</label>
+                                                {{ form.client_name }}
+                                                <small class="form-control-feedback"> Mijozni tanlang </small> </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Texnikani tanlang</label>
+                                                {{ form.product }}
+                                                <small class="form-control-feedback"> Texnikani tanlang </small> </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Texnikaning aybi</label>
                                                 {{ form.product_defective }}
-                                                <small class="form-control-feedback"> tavar aybi haqida qisqacha </small> </div>
+                                                <small class="form-control-feedback"> Texnikaning aybi haqida qisqacha </small> </div>
                                         </div>
                                         <!--/span-->
                                         <div class="col-md-6">
@@ -114,6 +126,18 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <label class="control-label">Tashqaridan maxsulot olindimi?</label>
+                                                 {{form.kuchadan_tovar}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Skladan mahsulot</label>
+                                                 {{form.sklad_item}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <label class="control-label">Service xizmat narxi</label>
                                                  {{form.clien_service_price}}
                                             </div>
@@ -128,6 +152,12 @@
                                             <div class="form-group">
                                                 <label class="control-label">Serviceni yakunlovchi</label>
                                                  {{form.topshiruvchi}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md12">
+                                            <div class="form-group">
+                                                <labelclass="control-label">Izoh</label>
+                                                {{form.coment}}
                                             </div>
                                         </div>
                                         <!--/span-->

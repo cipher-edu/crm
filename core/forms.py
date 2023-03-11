@@ -36,12 +36,17 @@ class Cerviceendform(forms.ModelForm):
         model = Mahsulottopshirish
         fields = '__all__'
         widgets = {
+            'client_name': forms.Select(attrs={'class':'form-control custom-select'}),
+            'kuchadan_tovar':forms.TextInput(attrs={'class':'form-control'}),
+            'sklad_item':forms.Select(attrs={'class':'form-control custom-select'}),
             'product_defective': forms.TextInput(attrs={'class':'form-control'}),
             'product_repaired' : forms.TextInput(attrs={'class':'form-control'}),
             'produtct_not_repaired': forms.TextInput(attrs={'class':'form-control'}),
             'clien_service_price' : forms.TextInput(attrs={'class':'form-control'}),
             'cervice_item_price' : forms.TextInput(attrs={'class':'form-control'}),
             'topshiruvchi': forms.Select(attrs={'class':'form-control custom-select'}),
+            'coment':forms.TextInput(attrs={'class':'form-control '}),
+            'product': forms.Select(attrs={'class':'form-control custom-select'}),
         }
 
 class AddWorkerForm(forms.ModelForm):
