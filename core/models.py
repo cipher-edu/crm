@@ -94,14 +94,14 @@ class CerviseClient(models.Model):
     product_value = models.IntegerField(verbose_name="Maxsulot qiymatini kiriting")
     product_color = models.CharField(max_length=35, verbose_name="Maxsulot rangini kiriting")
     service_catetegory = models.ForeignKey(Organizationsservice, on_delete=models.CASCADE, verbose_name="Service xizmat turi"  )
-    client_reception_time = models.DateField(auto_now=True)
+    # client_reception_time = models.DateField(auto_now=True)
 
-    def save(self, *args, **kwargs):
-        ''' On save, update timestamps '''
-        if not self.id:
-            self.created = timezone.now()
-        self.modified = timezone.now()
-        return super(Clientadd, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     ''' On save, update timestamps '''
+    #     if not self.id:
+    #         self.created = timezone.now()
+    #     self.modified = timezone.now()
+    #     return super(Clientadd, self).save(*args, **kwargs)
     class Meta:
         verbose_name = 'Service xizmat ko\'rsatish'
         verbose_name_plural = 'Service xizmat ko\'rsatish'

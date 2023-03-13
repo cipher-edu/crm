@@ -53,6 +53,7 @@ def show_client(request,client_id):
     return render(request, 'pages/client-show.html', context=context)
 
 def clientservice(request):
+    
     form = CerviseClientForm(request.POST)
     if request.method == 'POST':
         if form.is_valid():

@@ -10,8 +10,8 @@ class ClientsForm(forms.ModelForm):
         widgets ={
             'client_name': forms.TextInput(attrs={'class': 'form-control'}),
             'client_phonenumber': forms.TextInput(attrs={'class': 'form-control'}),
-            'ovner': forms.Select(attrs={'class': 'form-control custom-select'})
-            # 'client_reception_time': forms.TextInput()
+            'ovner': forms.Select(attrs={'class': 'form-control custom-select'}),
+           # 'client_reception_time': forms.DateField()
         }
 
 class CerviseClientForm(forms.ModelForm):
